@@ -47,14 +47,8 @@ public class DataGenerator {
             return faker.internet().password();
         }
 
-        public static UserInfo generateValidUser() {
-            UserInfo userInfo = new UserInfo(generateLogin(), generatePassword(), "active");
-            sendQuery(userInfo);
-            return userInfo;
-        }
-
-        public static UserInfo generateBlockedUser() {
-            UserInfo userInfo = new UserInfo(generateLogin(), generatePassword(), "blocked");
+        public static UserInfo generateUser(String status) {
+            UserInfo userInfo = new UserInfo(generateLogin(), generatePassword(), status);
             sendQuery(userInfo);
             return userInfo;
         }

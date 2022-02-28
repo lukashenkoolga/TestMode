@@ -22,7 +22,7 @@ public class AuthTest {
 
     @Test
     void shouldSendFormValid() {
-        UserInfo validUserInfo = DataGenerator.Registration.generateValidUser();
+        UserInfo validUserInfo = DataGenerator.Registration.generateUser("active");
         $("[data-test-id=login] input").setValue(validUserInfo.getLogin());
         $("[data-test-id=password] input").setValue(validUserInfo.getPassword());
         $("button[data-test-id=action-login]").click();
@@ -31,7 +31,7 @@ public class AuthTest {
 
     @Test
     void shouldSendFormBlockedUser() {
-        UserInfo blockedUserInfo = generateBlockedUser();
+        UserInfo blockedUserInfo = DataGenerator.Registration.generateUser("blocked");
         $("[data-test-id=login] input").setValue(blockedUserInfo.getLogin());
         $("[data-test-id=password] input").setValue(blockedUserInfo.getPassword());
         $("button[data-test-id=action-login]").click();
